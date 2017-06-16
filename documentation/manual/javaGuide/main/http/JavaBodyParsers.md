@@ -64,9 +64,9 @@ public static Result save() {
   String textBody = body.asText();
   
   if(textBody != null) {
-    ok("Got: " + text);
+    return ok("Got: " + text);
   } else {
-    badRequest("Expecting text/plain request body");
+    return badRequest("Expecting text/plain request body");
   }
 }
 ```
@@ -91,7 +91,7 @@ public static Result index() {
   if(request().body().isMaxSizeExceeded()) {
     return badRequest("Too much data!");
   } else {
-    ok("Got body: " + request().body().asText()); 
+    return ok("Got body: " + request().body().asText()); 
   }
 }
 ```
